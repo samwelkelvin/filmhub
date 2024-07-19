@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Planet</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/global.css" rel="stylesheet">
+    <link href="css/movie-details.css" rel="stylesheet">
+    <link href="css/override.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani&display=swap" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/movie-details.js"></script>
+    <script src="api/data.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <section id="top">
+            <div class="container-xl">
+                <div class="row top_1">
+                    <div class="col-md-3">
+                        <div class="top_1l pt-1">
+                            <h3 class="mb-0"><a class="text-white" href="index.html"><i
+                                        class="fa fa-video-camera col_red me-1"></i> FilmHub</a></h3>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="top_1r text-end">
+                            <ul class="social-network social-circle mb-0">
+                                <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#" class="icoFacebook" title="Facebook"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-youtube"></i></a>
+                                </li>
+                                <li><a href="#" class="icoLinkedin" title="Linkedin"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- navigation -->
+        <section id="header">
+            <nav class="navbar navbar-expand-md navbar-light" id="navbar_sticky">
+                <div class="container-xl">
+                    <a class="navbar-brand text-white fw-bold" href="index.html">
+                        <i class="fa fa-video-camera col_red me-1"></i> FilmHub</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mb-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Movies
+                                </a>
+                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="popular.html">Popular</a></li>
+                                    <li><a class="dropdown-item" href="now-playing.html">Now playing</a></li>
+                                    <li><a class="dropdown-item" href="upcoming.html">Upcoming</a></li>
+                                    <li><a class="dropdown-item border-0" href="top-rated.html">Top rated</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    TV Shows
+                                </a>
+                                <ul class="dropdown-menu drop_1" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="popular-tv-show.html">Poplar</a></li>
+                                    <li><a class="dropdown-item" href="airing-today.html">Airing today</a></li>
+                                    <li><a class="dropdown-item" href="on-tv.html">On tv</a></li>
+                                    <li><a class="dropdown-item border-0" href="top-rated-tv-show.html">Top rated</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="trending-movies.html">Trending movies</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </nav>
+        </section>
+
+        <section id="center" class="center_o pt-2 pb-2">
+            <div class="container-xl">
+                <div class="row center_o1">
+                    <div class="col-md-5">
+                        <div class="center_o1l">
+                            <h2 class="mb-0">Tv Show Detail</h2>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="center_o1r text-end">
+                            <h6 class="mb-0 col_red"><a href="/">Home</a> <span class="me-2 ms-2 text-light"><i
+                                        class="fa fa-caret-right align-middle"></i></span> Movie Detail</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="blog" class="pt-4 pb-4 bg_grey">
+            <div class="container-xl">
+                <blockquote class="blockquote bg_dark p-4 pt-3 mt-4" id="errorEl" style="display: none;">
+                    <h6 class="fw-normal mb-0"><strong>- Oops!! </strong></h6>
+                    <p id="errorMessage"></p>
+                </blockquote>
+                <div id="movie-details" style="display: none;">
+                    <div class="row blog_1">
+                        <div class="col-md-8">
+                            <div class="blog_1l">
+                                <div class="blog_1l1">
+                                    <div class="popular_2i1lm position-relative clearfix">
+                                        <div class="popular_2i1lm1 clearfix">
+                                            <div class="grid">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a id="homepagelink">
+                                                        <img height="450" class="w-100" alt="Loading Movie poster"
+                                                            id="posterimg"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="blog_1l1i mt-3">
+                                        <h5><i class="fa fa-folder-open col_red me-1"></i> Movie News</h5>
+                                        <h2 class="mt-3"><a class="col_red" id="title"></a></h2>
+                                        <h6 class="fw-normal mt-3 col_light">
+                                            <span id="releaseDate"><i
+                                                    class="fa fa-clock-o me-1 align-middle col_red"></i></span>
+                                            <span class="ms-3" id="budget"><i
+                                                    class="fa fa-money me-1 align-middle col_red"></i></span>
+                                            <span class="ms-3" id="duration"><i
+                                                    class="fa fa-clock-o me-1 align-middle col_red"></i></span>
+                                            <span class="ms-3" id="rating"><i
+                                                    class="fa fa-star me-1 align-middle col_red"></i></span>
+                                        </h6>
+                                        <h5 class=" mt-3 ">Overview</h5>
+                                        <!-- Overview -->
+                                        <p class="mt-3" id="overview">
+                                    </div>
+                                </div>
+                                <div class="blog_1l2">
+                                    <blockquote class="blockquote bg_dark p-4 pt-3 mt-4">
+                                        <h6 class="fw-normal mb-0"><strong>-Tag Line </strong></h6>
+                                        <p id="tagline"></p>
+                                    </blockquote>
+
+                                    <ul>
+                                        <li class="d-inline-block me-3" id="total_votes"><a href="#"><i
+                                                    class="fa fa-tag me-1 col_red"></i>
+                                            </a></li>
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="blog_1r">
+                                <div class="blog_1r1 p-4 mt-4">
+                                    <h4>Movie <span class="col_red">Genres</span></h4>
+                                    <hr class="line mb-4">
+                                    <ul class="mb-0" id="genres">
+                                    </ul>
+                                </div>
+                                <div class="blog_1r1 p-4 mt-4">
+                                    <h4>Production <span class="col_red">Companies</span></h4>
+                                    <hr class="line mb-4">
+
+                                    <div id="productionCompanies"></div>
+
+                                </div>
+
+                                <div class="blog_1r1 p-4 mt-4">
+                                    <h4>Production <span class="col_red">Countries</span></h4>
+                                    <hr class="line mb-4">
+                                    <ul class="mb-0" id="productionCountries">
+                                    </ul>
+                                </div>
+
+                                <div class="blog_1r1 p-4 mt-4">
+                                    <h4>Spoken <span class="col_red">Languages</span></h4>
+                                    <hr class="line mb-4">
+                                    <ul class="mb-0" id="languages">
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h5 style="text-align: center;" id="loading" class=" m-5 ">
+                <div class="spinner-border text-danger" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                Loading
+            </h5>
+        </section>
+
+        <section id="serv_pg" class="pt-4 pb-4 bg_grey" style="margin-top: 20px;">
+            <div class="container-xl">
+                <div class="row trend_1">
+                    <div class="col-md-12">
+                        <h4 class="mb-0"><i class="fa fa-youtube-play align-middle col_red me-1"></i> Movie <span
+                                class="col_red">Teaser</span></h4>
+                    </div>
+                </div>
+                <div class="row serv_pg1 mt-4" id="show_movie_Videos">
+
+                </div>
+
+                <blockquote class="blockquote bg_dark p-4 pt-3 mt-4" id="videoErrorEl" style="display: none;">
+                    <h6 class="fw-normal mb-0"><strong>- Oops!! </strong></h6>
+                    <p id="videoErrorMessage"></p>
+                </blockquote>
+
+                <div id="showVideosLoader">
+                    <h5 style="text-align: center;" id="loading" class="m-5">
+                        <div class="spinner-border text-danger" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        Loading
+                    </h5>
+                </div>
+
+
+            </div>
+        </section>
+
+        <section id="footer">
+            <div class="footer_m clearfix">
+                <div class="container-xl">
+                    <div class="row footer_1">
+                        <div class="col-md-4">
+                            <div class="footer_1i">
+                                <h3><a class="text-white" href="index.html"><i
+                                            class="fa fa-video-camera col_red me-1"></i> FilmHub</a></h3>
+                                <p class="mt-3">Step into the shoes of your favorite movie heroes and heroines
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer_1i">
+                                <h4>Fun</h4>
+                                <div class="footer_1i1 row mt-4">
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//p6AbOJvMQhBmffd0PIv0u8ghWeY.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//2H1TmgdfNtsKlU9jKdeNyYL5y8T.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300/bX2xnavhMYjWDoZp1VM6VnU1xwe.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//3w84hCFJATpiCO5g8hpdWVPBbmq.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer_1i1 row mt-3">
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//kuf6dutpsT0vSVehic3EZIqkOBt.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//nP6RliHjxsz4irTKsxe8FRhKZYl.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//xkNK36hQv8SWiwiQoE7naRfP0zL.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-3">
+                                        <div class="footer_1i1i">
+                                            <div class="grid clearfix">
+                                                <figure class="effect-jazz mb-0">
+                                                    <a href="#"><img
+                                                            src="https://image.tmdb.org/t/p/w300//7PoIAvL3Io5v0HyBliXfXZruQTi.jpg"
+                                                            height="70" class="w-100" alt="Favourite"></a>
+                                                </figure>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="footer_1i">
+                                <h4>Sign <span class="col_red">Newsletter</span></h4>
+                                <p class="mt-3">Subscribe to our newsletter list to get latest news and updates
+                                    from us
+                                </p>
+                                <div class="input-group">
+                                    <input type="text" class="form-control bg-black" placeholder="Email">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn text-white bg_red rounded-0 border-0" type="button">
+                                            Subscribe</button>
+                                    </span>
+                                </div>
+                                <ul class="social-network social-circle mb-0 mt-4">
+                                    <li><a href="#" class="icoRss" title="Rss"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#" class="icoFacebook" title="Facebook"><i
+                                                class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li><a href="#" class="icoGoogle" title="Google +"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                    <li><a href="#" class="icoLinkedin" title="Linkedin"><i
+                                                class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-xl pt-3 pb-3 bg_grey" id="footer_b">
+                <div class="row footer_1">
+                    <div class="col-md-12">
+                        <div class="footer_1l">
+                            <p class="mb-0 text-center">©
+                                <script>document.write(new Date().getFullYear())</script> FILMHUB | All Rights
+                                Reserved
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            window.onscroll = function () { myFunction() };
+
+            var navbar_sticky = document.getElementById("navbar_sticky");
+            var sticky = navbar_sticky.offsetTop;
+            var navbar_height = document.querySelector('.navbar').offsetHeight;
+
+            function myFunction() {
+                if (window.pageYOffset >= sticky + navbar_height) {
+                    navbar_sticky.classList.add("sticky")
+                    document.body.style.paddingTop = navbar_height + 'px';
+                } else {
+                    navbar_sticky.classList.remove("sticky");
+                    document.body.style.paddingTop = '0'
+                }
+            }
+
+            //get movie id from url
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const movieid = urlParams.get('id')
+
+            //fetch movie details by id
+            const fetchMovieDetails = () => {
+
+                getSingleMovieDetails(movieid).then(data => {
+                    let obj = data.resp;
+                    document.getElementById("loading").style.display = "none";
+                    if (obj.status) {
+
+                        document.getElementById("errorEl").style.display = "none";
+                        document.getElementById("movie-details").style.display = "block";
+                        showMovieDetails(obj);
+                        showgenres(obj.genres)
+                        showProductionCompanies(obj.production_companies)
+                        showProductionCountries(obj.production_countries)
+                        showMovieSpokenLanguages(obj.spoken_languages)
+                    } else {
+                        document.getElementById("movie-details").style.display = "none";
+                        document.getElementById("errorEl").style.display = "block";
+                        document.getElementById("errorMessage").innerText = obj.status_message
+                    }
+
+                })
+                    .catch(err => console.log(err))
+            }
+
+            fetchMovieDetails();
+
+
+
+            const fetchMovieVideos = () => {
+
+                getMovieVideos(movieid).then(data => {
+
+                    let obj = data.resp;
+
+                    document.getElementById("showVideosLoader").style.display = "none";
+
+                    if (data.status) {
+
+                        document.getElementById("videoErrorEl").style.display = "none";
+                        showMovieVideos(obj);
+                    } else {
+                        document.getElementById("videoErrorEl").style.display = "block";
+                        document.getElementById("videoErrorMessage").innerText = obj.status_message
+                    }
+
+                })
+                    .catch(err => console.log(err))
+            }
+
+            fetchMovieVideos();
+
+
+
+
+        </script>
+
+    </div>
+</body>
+
+</html>
